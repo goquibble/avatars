@@ -1,0 +1,9 @@
+[project]
+name = "avatars"
+version = "0.1.0"
+description = "API for generating customizable SVG avatars with consistent seeds."
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "fastapi[standard]>=0.119.0",
+]
