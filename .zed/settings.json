@@ -4,5 +4,8 @@
       "format_on_save": "off",
       "formatter": "language_server"
     }
+  },
+  "file_types": {
+    "XML": [".svg"]
   }
 }
