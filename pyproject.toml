@@ -13,3 +13,4 @@ dependencies = [
 reportMissingTypeStubs = "none"
 reportUnknownMemberType = "none"
 reportUnknownVariableType = "none"
+reportAny = "none"
