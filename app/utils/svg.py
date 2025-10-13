@@ -41,7 +41,7 @@ def generate_avatar(seed: str, color: str, expression: str) -> str:
     combined_svg = f"""
     <svg viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
         {clean_svg(body_svg)}
-        <g transform="translate(150,160)" style="transform-box: fill-box; transform-origin: center;">
+        <g transform="translate(150,175)" style="transform-box: fill-box; transform-origin: center;">
             <g transform="translate({offset_x},{offset_y})">
                 {clean_svg(face_svg)}
             </g>
