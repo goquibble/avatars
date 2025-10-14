@@ -1,0 +1,9 @@
+@import "tailwindcss";
+@import "@catppuccin/tailwindcss/mocha.css";
+
+@layer base {
+  body {
+    @apply bg-ctp-crust text-ctp-text;
+    letter-spacing: var(--tracking-normal);
+  }
+}
