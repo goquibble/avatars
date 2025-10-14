@@ -1,9 +1,11 @@
 @import "tailwindcss";
 @import "@catppuccin/tailwindcss/mocha.css";
+@import "@fontsource-variable/bricolage-grotesque";
 
 @layer base {
   body {
     @apply bg-ctp-crust text-ctp-text;
     letter-spacing: var(--tracking-normal);
+    font-family: "Bricolage Grotesque Variable", sans-serif;
   }
 }
