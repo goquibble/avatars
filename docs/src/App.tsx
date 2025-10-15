@@ -1,4 +1,5 @@
 import EndpointsSection from "./components/sections/endpoints";
+import PlaygroundSection from "./components/sections/playground";
 import QueryParamsSection from "./components/sections/query-params";
 import { cn } from "./lib/utils";
 
@@ -36,6 +37,7 @@ export default function App() {
       </div>
       <EndpointsSection />
       <QueryParamsSection />
+      <PlaygroundSection />
     </main>
   );
 }

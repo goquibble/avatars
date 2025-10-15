@@ -3,9 +3,10 @@ import { cn } from "../lib/utils";
 
 interface CodeBlockProps {
   children: React.ReactNode;
+  className?: string;
 }
 
-export default function CodeBlock({ children }: CodeBlockProps) {
+export default function CodeBlock({ children, className }: CodeBlockProps) {
   const [copied, setCopied] = useState(false);
   const codeRef = useRef<HTMLElement | null>(null);
 
@@ -27,7 +28,7 @@ export default function CodeBlock({ children }: CodeBlockProps) {
   }, [copied]);
 
   return (
-    <div className="flex items-center gap-1.5">
+    <div className={cn("flex items-center gap-1.5", className)}>
       <code
         ref={codeRef}
         className="bg-ctp-mantle border border-ctp-base h-8 flex items-center justify-center px-3 text-sm rounded-l-4xl rounded-r-2xl"
