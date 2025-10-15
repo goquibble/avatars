@@ -1,3 +1,4 @@
+import Footer from "./components/footer";
 import EndpointsSection from "./components/sections/endpoints";
 import PlaygroundSection from "./components/sections/playground";
 import QueryParamsSection from "./components/sections/query-params";
@@ -38,6 +39,7 @@ export default function App() {
       <EndpointsSection />
       <QueryParamsSection />
       <PlaygroundSection />
+      <Footer />
     </main>
   );
 }
