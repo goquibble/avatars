@@ -42,7 +42,7 @@ export default function PlaygroundSection() {
     <section className="mt-20 flex flex-col">
       <h2 className="text-2xl font-bold text-center">Playground</h2>
       <p className="text-sm text-ctp-subtext0 text-center">
-        Let's customize it even furthur!
+        Try it out and see what works!
       </p>
       <div className="w-full flex flex-col sm:flex-row mt-5 gap-2">
         <div className="flex flex-col justify-between p-2 sm:w-1/2 border border-ctp-base rounded-xl bg-ctp-mantle">

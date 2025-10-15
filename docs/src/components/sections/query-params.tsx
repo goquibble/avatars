@@ -5,7 +5,7 @@ export default function QueryParamsSection() {
     <section className="mt-10 flex flex-col">
       <h2 className="text-xl font-bold text-center">Query Params</h2>
       <p className="text-sm text-ctp-subtext0 text-center">
-        These endpoints accepts some query parameters.
+        These endpoints accept some query parameters.
       </p>
       <div className="mt-5 text-sm">
         <div className="flex bg-ctp-mantle rounded-md border border-ctp-base font-semibold text-ctp-subtext0">

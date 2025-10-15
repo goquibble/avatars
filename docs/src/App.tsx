@@ -41,9 +41,9 @@ export default function App() {
           />
         ))}
       </div>
+      <PlaygroundSection />
       <EndpointsSection />
       <QueryParamsSection />
-      <PlaygroundSection />
       <Footer />
     </main>
   );
