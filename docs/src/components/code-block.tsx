@@ -31,7 +31,7 @@ export default function CodeBlock({ children, className }: CodeBlockProps) {
     <div className={cn("flex items-center gap-1.5", className)}>
       <code
         ref={codeRef}
-        className="bg-ctp-mantle border border-ctp-base h-8 flex items-center justify-center px-3 text-sm rounded-l-4xl rounded-r-2xl"
+        className="overflow-x-auto scrollbar-hide whitespace-nowrap bg-ctp-mantle border border-ctp-base h-8 flex items-center justify-center px-3 text-sm rounded-l-4xl rounded-r-2xl"
       >
         {children}
       </code>

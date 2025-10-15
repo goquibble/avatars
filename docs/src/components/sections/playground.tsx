@@ -44,11 +44,15 @@ export default function PlaygroundSection() {
       <p className="text-sm text-ctp-subtext0 text-center">
         Let's customize it even furthur!
       </p>
-      <div className="w-full flex mt-5 gap-2">
-        <div className="flex flex-col justify-between p-2 w-1/2 border border-ctp-base rounded-xl bg-ctp-mantle">
-          <img src={url.toString()} alt="" className="size-2/3 m-auto" />
+      <div className="w-full flex flex-col sm:flex-row mt-5 gap-2">
+        <div className="flex flex-col justify-between p-2 sm:w-1/2 border border-ctp-base rounded-xl bg-ctp-mantle">
+          <img
+            src={url.toString()}
+            alt=""
+            className="size-25 sm:size-2/3 m-auto"
+          />
         </div>
-        <div className="w-1/2 border border-ctp-base rounded-xl flex flex-col gap-2 p-2">
+        <div className="sm:w-1/2 border border-ctp-base rounded-xl flex flex-col gap-2 p-2">
           <div className="text-sm bg-ctp-mantle p-2 flex ring ring-ctp-base rounded-md focus-within:bg-ctp-base transition-colors">
             <span className="text-ctp-subtext0 whitespace-nowrap">?seed=</span>
             <input
@@ -60,7 +64,7 @@ export default function PlaygroundSection() {
           <span className="text-sm text-ctp-overlay1 font-medium">
             Expression:
           </span>
-          <div className="grid grid-cols-3 gap-2">
+          <div className="grid grid-cols-4 md:grid-cols-3 gap-2">
             {expressions.map((expression) => (
               <button
                 key={expression}
@@ -81,7 +85,7 @@ export default function PlaygroundSection() {
           </div>
         </div>
       </div>
-      <CodeBlock className="self-center mt-2">
+      <CodeBlock className="sm:self-center mt-2">
         <span className="text-ctp-subtext0">{`${url.protocol}//`}</span>
         {url.href.replace(`${url.protocol}//`, "")}
       </CodeBlock>

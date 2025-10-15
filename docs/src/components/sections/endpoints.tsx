@@ -10,7 +10,7 @@ export default function EndpointsSection() {
       <p className="text-sm text-ctp-subtext0 text-center">
         API has one endpoint and two sub endpoints.
       </p>
-      <div className="mt-5 self-center space-y-1.5">
+      <div className="mt-5 sm:self-center space-y-1.5">
         <CodeBlock>
           <span className="text-ctp-subtext0">{`${url.protocol}//`}</span>
           {`${url.href.replace(`${url.protocol}//`, "")}/svg`}
