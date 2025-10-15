@@ -2,6 +2,7 @@ import Footer from "./components/footer";
 import EndpointsSection from "./components/sections/endpoints";
 import PlaygroundSection from "./components/sections/playground";
 import QueryParamsSection from "./components/sections/query-params";
+import { AVATARS_API_BASE_URL } from "./constants";
 import { cn } from "./lib/utils";
 
 export default function App() {
@@ -27,7 +28,7 @@ export default function App() {
         {Array.from({ length: 5 }).map((_, idx) => (
           <img
             key={idx.toString()}
-            src={`http://localhost:8000/1.x/avatar/svg?seed=${idx}`}
+            src={`${AVATARS_API_BASE_URL}/svg?seed=${idx}`}
             alt={`avatar-${idx}`}
             className={cn(
               "select-none pointer-events-none",
