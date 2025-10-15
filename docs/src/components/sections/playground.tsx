@@ -11,13 +11,15 @@ export default function PlaygroundSection() {
 
   const debouncedUrlChange = useCallback(
     debounce((key: string, value: string) => {
-      const newUrl = new URL(url);
-      if (!value.trim()) {
-        newUrl.searchParams.delete(key);
-      } else {
-        newUrl.searchParams.set(key, value);
-      }
-      setUrl(newUrl);
+      setUrl((prev) => {
+        const newUrl = new URL(prev);
+        if (!value.trim()) {
+          newUrl.searchParams.delete(key);
+        } else {
+          newUrl.searchParams.set(key, value);
+        }
+        return newUrl;
+      });
     }, 500),
     [],
   );
