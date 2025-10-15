@@ -1,7 +1,6 @@
 import Footer from "./components/footer";
 import EndpointsSection from "./components/sections/endpoints";
 import PlaygroundSection from "./components/sections/playground";
-import QueryParamsSection from "./components/sections/query-params";
 import { AVATARS_API_BASE_URL } from "./constants";
 import { cn } from "./lib/utils";
 
@@ -43,7 +42,6 @@ export default function App() {
       </div>
       <PlaygroundSection />
       <EndpointsSection />
-      <QueryParamsSection />
       <Footer />
     </main>
   );

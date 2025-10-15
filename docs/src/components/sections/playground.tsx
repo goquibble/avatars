@@ -49,7 +49,7 @@ export default function PlaygroundSection() {
           <img
             src={url.toString()}
             alt=""
-            className="size-25 sm:size-2/3 m-auto"
+            className="size-25 sm:size-30 m-auto"
           />
         </div>
         <div className="sm:w-1/2 border border-ctp-base rounded-xl flex flex-col gap-2 p-2">
