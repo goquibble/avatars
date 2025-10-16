@@ -1,4 +1,0 @@
-name = "avatars"
-main = "app/main.py"
-compatibility_flags = ["python_workers", "python_dedicated_snapshot"]
-compatibility_date = "2025-10-16"
