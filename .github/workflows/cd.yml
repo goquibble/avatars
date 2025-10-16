@@ -1,4 +1,4 @@
-name: Publish
+name: CD
 
 on:
   push:
@@ -6,6 +6,19 @@ on:
       - main
 
 jobs:
+  clourflare_worker:
+    name: Deploy to Cloudflare workers
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Build & Deploy Worker
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+
   docker:
     name: Publish to Docker
     runs-on: ubuntu-latest
