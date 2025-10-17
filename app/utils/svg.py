@@ -1,5 +1,4 @@
 from pathlib import Path
-import random
 import re
 import xml.etree.ElementTree as ET
 
