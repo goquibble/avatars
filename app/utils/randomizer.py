@@ -9,6 +9,7 @@ with open(ASSETS_DIR / "expressions.json", "r") as file:
     EXPRESSIONS = json.load(file)
 
 
+# https://stackabuse.com/bytes/generating-random-hex-colors-in-python/
 def get_random_hex_color() -> str:
     r = random.randint(0, 255)
     g = random.randint(0, 255)
