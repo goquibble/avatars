@@ -23,7 +23,7 @@ async def avatar_svg(
     seed: str = "guest", color: str | None = None, expression: str | None = None
 ) -> Response:
     seed, color, expression = resolve_avatar(seed, color, expression)
-    svg_content = generate_avatar(seed=seed, color=color, expression=expression)
+    svg_content = generate_avatar(color=color, expression=expression)
 
     return Response(content=svg_content, media_type="image/svg+xml")
 
@@ -36,7 +36,7 @@ async def avatar_png(
     size: Annotated[int | None, Query(ge=1, le=1024)] = 128,
 ) -> Response:
     seed, color, expression = resolve_avatar(seed, color, expression)
-    svg_content = generate_avatar(seed=seed, color=color, expression=expression)
+    svg_content = generate_avatar(color=color, expression=expression)
     png_bytes = cairosvg.svg2png(
         bytestring=svg_content.encode("utf-8"), output_width=size, output_height=size
     )

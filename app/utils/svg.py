@@ -29,9 +29,7 @@ def extract_viewbox_dimensions(svg: str) -> tuple[float, float]:
     return -w / 2, -h / 2
 
 
-def generate_avatar(seed: str, color: str, expression: str) -> str:
-    random.seed(seed)
-
+def generate_avatar(color: str, expression: str) -> str:
     body_svg = load_svg_snippet("body")
     face_svg = load_svg_snippet(expression, folder="expressions")
 
