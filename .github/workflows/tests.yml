@@ -19,7 +19,7 @@ jobs:
         uses: astral-sh/setup-uv@v6
         with:
           enable-cache: true
-          python-version-file: ".python-version"
+          version-file: ".python-version"
 
       - name: Install Dependencies
         run: uv sync --locked --dev
