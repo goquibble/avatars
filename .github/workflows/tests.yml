@@ -15,11 +15,15 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v5
 
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version-file: ".python-version"
+
       - name: Install uv and set the Python version
         uses: astral-sh/setup-uv@v6
         with:
           enable-cache: true
-          version-file: ".python-version"
 
       - name: Install Dependencies
         run: uv sync --locked --dev
