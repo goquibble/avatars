@@ -1,12 +1,6 @@
-import json
-from pathlib import Path
 import random
 
-# app/assets dir
-ASSETS_DIR = Path(__file__).resolve().parent.parent / "assets"
-
-with open(ASSETS_DIR / "expressions.json", "r") as file:
-    EXPRESSIONS = json.load(file)
+from app.constants import EXPRESSIONS
 
 
 # https://stackabuse.com/bytes/generating-random-hex-colors-in-python/

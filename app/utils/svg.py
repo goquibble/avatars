@@ -1,9 +1,7 @@
-from pathlib import Path
 import re
 import xml.etree.ElementTree as ET
 
-# app/assets dir
-ASSETS_DIR = Path(__file__).resolve().parent.parent / "assets"
+from app.constants import ASSETS_DIR
 
 
 def load_svg_snippet(name: str, folder: str = ".") -> str:
