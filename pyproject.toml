@@ -9,8 +9,16 @@ dependencies = [
     "fastapi[standard]>=0.119.0",
 ]
 
+[tool.pytest.ini_options]
+pythonpath = ["."]
+
 [tool.pyright]
 reportMissingTypeStubs = "none"
 reportUnknownMemberType = "none"
 reportUnknownVariableType = "none"
 reportAny = "none"
+
+[dependency-groups]
+dev = [
+    "pytest>=8.4.2",
+]
