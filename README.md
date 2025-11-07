@@ -1,4 +1,4 @@
-# <img src="/docs/public/favicon.svg" width="25" /> avatars
+# <img src="./client/public/favicon.svg" width="25" /> avatars
 
 > API for generating customizable SVG avatars with consistent seeds.
 
