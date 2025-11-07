@@ -8,7 +8,7 @@ on:
 
 jobs:
   app:
-    name: "App Tests"
+    name: "App"
     runs-on: ubuntu-latest
 
     steps:
@@ -32,7 +32,7 @@ jobs:
         run: uv run pytest
 
   client:
-    name: "Client Tests"
+    name: "Client"
     runs-on: ubuntu-latest
     defaults:
       run:
