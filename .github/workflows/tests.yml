@@ -8,48 +8,49 @@ on:
 
 jobs:
   test-app:
-    name: Pytest
+    name: "Pytest"
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
+      - name: "Checkout code"
         uses: actions/checkout@v5
 
-      - name: Set up Python
+      - name: "Set up Python"
         uses: actions/setup-python@v6
         with:
           python-version-file: ".python-version"
 
-      - name: Install uv and set the Python version
+      - name: "Install uv and set the Python version"
         uses: astral-sh/setup-uv@v6
         with:
           enable-cache: true
 
-      - name: Install Dependencies
+      - name: "Install Dependencies"
         run: uv sync --locked --dev
 
-      - name: Run Pytest and Coverage
+      - name: "Run Pytest and Coverage"
         run: uv run pytest
 
   test-client:
-    name: Vitest & RTL
+    name: "Vitest & RTL"
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: ./client
+        working-directory: "./client"
 
     steps:
-      - name: Checkout code
+      - name: "Checkout code"
         uses: actions/checkout@v5
 
-      - name: Setup Node.js
+      - name: "Setup Node.js"
         uses: actions/setup-node@v6
         with:
           node-version: 20.x
           cache: "npm"
+          cache-dependency-path: "client/package-lock.json"
 
-      - name: Install Dependencies
+      - name: "Install Dependencies"
         run: npm ci
 
-      - name: Run Vitest & RTL
+      - name: "Run Vitest & RTL"
         run: npm run test
