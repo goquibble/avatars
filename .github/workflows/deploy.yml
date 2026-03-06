@@ -30,41 +30,10 @@ jobs:
           aws-region: ap-south-1
 
       - name: Build function.zip
-        run: |
-          docker run --rm -v "${{ github.workspace }}:/workspace" -w /workspace \
-            amazonlinux:2023 bash -c '
-              dnf install -y python3.13 python3.13-pip cairo pango zip \
-                libX11 libXrender libXext libxcb
-
-              python3.13 -m pip install -r requirements.txt -t build --no-cache-dir
-              cp -r app build/app
-              mkdir -p build/lib
-
-              # Auto-detect and copy all transitive native deps for cairo and pango
-              for root_lib in /usr/lib64/libcairo.so.2 /usr/lib64/libpango-1.0.so.0 /usr/lib64/libpangocairo-1.0.so.0 /usr/lib64/libpangoft2-1.0.so.0; do
-                [ -f "$root_lib" ] && cp -n "$root_lib" build/lib/ 2>/dev/null || true
-                ldd "$root_lib" 2>/dev/null | awk "/=>/ {print \$3}" | while read -r dep; do
-                  [ -f "$dep" ] && cp -n "$dep" build/lib/ 2>/dev/null || true
-                done
-              done
-
-              # Remove standard libs already present in the Lambda runtime
-              rm -f build/lib/libpthread.so* build/lib/libdl.so* build/lib/librt.so* \
-                    build/lib/libm.so* build/lib/libc.so* build/lib/libstdc++.so* \
-                    build/lib/linux-vdso.so* build/lib/ld-linux-*.so*
-
-              cd build && zip -r /workspace/function.zip .
-            '
+        run: python scripts/package.py
 
       - name: Deploy to AWS Lambda
         run: |
           aws lambda update-function-code \
             --function-name quibble_avatars_service \
             --zip-file fileb://function.zip
-
-          aws lambda wait function-updated \
-            --function-name quibble_avatars_service
-
-          aws lambda update-function-configuration \
-            --function-name quibble_avatars_service \
-            --environment "Variables={LD_LIBRARY_PATH=/var/task/lib}"

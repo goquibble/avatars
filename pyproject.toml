@@ -4,11 +4,7 @@ version = "0.1.0"
 description = "API for generating customizable SVG avatars with consistent seeds."
 readme = "README.md"
 requires-python = ">=3.13"
-dependencies = [
-    "cairosvg>=2.8.2",
-    "fastapi>=0.135.1",
-    "mangum>=0.21.0",
-]
+dependencies = ["resvg-py>=0.2.6", "fastapi>=0.135.1", "mangum>=0.21.0"]
 
 [tool.pytest.ini_options]
 pythonpath = ["."]
@@ -20,7 +16,4 @@ reportUnknownVariableType = "none"
 reportAny = "none"
 
 [dependency-groups]
-dev = [
-    "pytest>=8.4.2",
-    "uvicorn[standard]>=0.41.0",
-]
+dev = ["httpx>=0.28.1", "pytest>=8.4.2", "uvicorn[standard]>=0.41.0"]

@@ -1,5 +1,5 @@
 from typing import Annotated
-import cairosvg
+import resvg_py
 from fastapi import APIRouter, Response, Query
 from pydantic import AfterValidator
 
@@ -29,8 +29,6 @@ async def avatar_png(
 ) -> Response:
     color, expression = resolve_avatar_params(seed, color, expression)
     svg_content = generate_avatar(color=color, expression=expression)
-    png_bytes = cairosvg.svg2png(
-        bytestring=svg_content.encode(), output_width=size, output_height=size
-    )
+    png_bytes = resvg_py.svg_to_bytes(svg_string=svg_content, width=size, height=size)
 
     return Response(content=png_bytes, media_type="image/png")

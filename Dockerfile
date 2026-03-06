@@ -1,9 +1,6 @@
 FROM python:3.13-slim AS base
 # base work dir
 WORKDIR /app
-# install cario requird deps
-RUN apt-get update -y
-RUN apt-get install -y libcairo2
 
 FROM base AS build
 # install uv.
