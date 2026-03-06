@@ -30,10 +30,39 @@ jobs:
           aws-region: ap-south-1
 
       - name: Build function.zip
-        run: python scripts/package.py
+        run: |
+          docker run --rm -v "${{ github.workspace }}:/workspace" -w /workspace \
+            amazonlinux:2023 bash -c '
+              dnf install -y python3.13 python3.13-pip cairo pango zip
+              python3.13 -m pip install -r requirements.txt -t build --no-cache-dir
+              cp -r app build/app
+              mkdir -p build/lib
+              cp /usr/lib64/libcairo.so* build/lib/
+              cp /usr/lib64/libpango*.so* build/lib/
+              cp /usr/lib64/libpangocairo*.so* build/lib/
+              cp /usr/lib64/libpangoft2*.so* build/lib/
+              cp /usr/lib64/libgobject-2.0.so* build/lib/
+              cp /usr/lib64/libglib-2.0.so* build/lib/
+              cp /usr/lib64/libfontconfig.so* build/lib/
+              cp /usr/lib64/libfreetype.so* build/lib/
+              cp /usr/lib64/libpixman-1.so* build/lib/
+              cp /usr/lib64/libffi.so* build/lib/
+              cp /usr/lib64/libharfbuzz.so* build/lib/
+              cp /usr/lib64/libpng16.so* build/lib/
+              cp /usr/lib64/libexpat.so* build/lib/
+              cp /usr/lib64/libbz2.so* build/lib/
+              cd build && zip -r /workspace/function.zip . && cd /workspace
+            '
 
       - name: Deploy to AWS Lambda
         run: |
           aws lambda update-function-code \
             --function-name quibble_avatars_service \
             --zip-file fileb://function.zip
+
+          aws lambda wait function-updated \
+            --function-name quibble_avatars_service
+
+          aws lambda update-function-configuration \
+            --function-name quibble_avatars_service \
+            --environment "Variables={LD_LIBRARY_PATH=/var/task/lib}"
