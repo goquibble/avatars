@@ -13,8 +13,6 @@ jobs:
   lambda:
     name: Deploy to Lambda
     runs-on: ubuntu-latest
-    environment:
-      name: production
 
     steps:
       - name: Checkout code
