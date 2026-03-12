@@ -40,7 +40,7 @@ jobs:
           echo "VITE_AVATARS_API_BASE_URL=${{ vars.VITE_AVATARS_API_BASE_URL }}" > .env
 
       - name: Build
-        run: npm run build -- --base=/avatars/
+        run: npm run build
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v4
